@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,18 +16,41 @@
 
         header {
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px;
             background: linear-gradient(135deg, #020617, #1e293b);
         }
 
         header h1 {
             font-size: 48px;
-            margin-btottom: 10px;
+            margin-bottom: 10px;
         }
 
         header p {
             font-size: 20px;
             color: #cbd5e1;
+        }
+
+        nav {
+            background-color: #020617;
+            text-align: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: #cbd5e1;
+            font-size: 16px;
+            margin: 0 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        nav button:hover,
+        nav button.active {
+            color: #38bdf8;
         }
 
         .button {
@@ -46,6 +68,11 @@
             max-width: 1000px;
             margin: auto;
             padding: 45px 20px;
+            display: none;
+        }
+
+        section.active {
+            display: block;
         }
 
         h2 {
@@ -95,13 +122,17 @@
 <header>
     <h1>Mustafa Hijazi</h1>
     <p>Mechanical Engineering Student | UAV Design | Robotics | CAD | Prototyping</p>
-
     <a class="button" href="Mustafa%20Hijazi%20CV.pdf" target="_blank">Download CV</a>
 </header>
 
-<section>
-    <h2>About Me</h2>
+<nav>
+    <button class="tab active" onclick="showSection('home', this)">Home</button>
+    <button class="tab" onclick="showSection('experience', this)">Experience</button>
+    <button class="tab" onclick="showSection('projects', this)">Projects</button>
+</nav>
 
+<section id="home" class="active">
+    <h2>About Me</h2>
     <p>
         I am a Mechanical Engineering student at the American University of Beirut,
         expected to graduate in June 2026. I am interested in UAV design, robotics,
@@ -109,97 +140,15 @@
         My work combines mechanical design, hands-on fabrication, electronics,
         and multidisciplinary engineering problem-solving.
     </p>
-</section>
 
-<section>
     <h2>Education</h2>
-
     <div class="card">
-        <h3>American University of Beirut - Beirut, Lebanon</h3>
+        <h3>American University of Beirut — Beirut, Lebanon</h3>
         <p>Bachelor of Engineering in Mechanical Engineering</p>
-        <p>Obtained: June 2026</p>
-    </div>
-</section>
-
-<section>
-    <h2>Work Experience</h2>
-
-    <div class="card">
-        <h3>Engineering Intern — Jubaili Bros</h3>
-        <p>
-            Gained hands-on exposure to generator components, wiring schemes,
-            electrical layouts, control panels, power generators, chassis design,
-            and fabrication processes.
-        </p>
+        <p>Expected Graduation: June 2026</p>
     </div>
 
-    <div class="card">
-        <h3>Mechanical Engineering Intern — Alef Group</h3>
-        <p>
-            Reviewed HVAC, drainage, fire protection, natural gas, and water layouts
-            for residential projects. Also worked on HVAC drawings using AutoCAD and
-            visited construction sites to observe MEP installation inspections.
-        </p>
-    </div>
-</section>
-
-<section>
-    <h2>Projects</h2>
-
-    <div class="card">
-        <h3>Tri-copter with 360° Omnidirectional Maneuvering</h3>
-        <p>
-            Designed a custom UAV with a carbon fiber frame and 3D printed PETG arm
-            mounts, focusing on strength, weight reduction, CAD modelling, wiring,
-            and prototype development.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Human-Robot Interaction</h3>
-        <p>
-            Assisted in simulating smooth humanlike trajectories for a 6-DOF robotic arm
-            using ROS2, Python, Gazebo, and minimum-jerk trajectory optimization.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Autonomous Firefighting UAV</h3>
-        <p>
-            Developed control logic for the scooping phase of an autonomous firefighting
-            aircraft concept based on the CL-415, including control architecture,
-            block diagrams, and state diagrams.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Robot Dog Locomotion in Complex Environments</h3>
-        <p>
-            Worked on improving the locomotion capabilities of the Unitree Go1 robot dog
-            in unstructured environments using high-level commands and low-level control.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Bicycle-Based Power Generator</h3>
-        <p>
-            Designed and built a stationary pedaling machine that generates electrical
-            power and stores it in a battery using spare bicycle parts.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>Rotating Solar Panel</h3>
-        <p>
-            Built a solar-tracking system using Arduino, LDR sensors, and a DC motor
-            to improve power generation through continuous sun alignment.
-        </p>
-    </div>
-</section>
-
-<section>
     <h2>Skills</h2>
-
     <div>
         <span class="tag">SolidWorks</span>
         <span class="tag">AutoCAD</span>
@@ -218,9 +167,83 @@
     </div>
 </section>
 
-<section>
-    <h2>Contact</h2>
+<section id="experience">
+    <h2>Work Experience</h2>
 
+    <div class="card">
+        <h3>Engineering Intern — Jubaili Bros</h3>
+        <p>
+            Gained hands-on exposure to generator components, wiring schemes,
+            electrical layouts, control panels, power generators, chassis design,
+            and fabrication processes.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Mechanical Engineering Intern — Alef Group</h3>
+        <p>
+            Reviewed HVAC, drainage, fire protection, natural gas, and water layouts
+            for residential projects. Worked on HVAC drawings using AutoCAD and
+            visited construction sites to observe MEP installation inspections.
+        </p>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>Tri-copter with 360° Omnidirectional Maneuvering</h3>
+        <p>
+            Designed a custom UAV with a carbon fiber frame and 3D printed PETG arm
+            mounts, focusing on strength, weight reduction, CAD modelling, wiring,
+            and prototype development.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Human-Robot Interaction</h3>
+        <p>
+            Simulated smooth humanlike trajectories for a 6-DOF robotic arm using
+            ROS2, Python, Gazebo, and minimum-jerk trajectory optimization.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Autonomous Firefighting UAV</h3>
+        <p>
+            Developed control logic for the scooping phase of an autonomous
+            firefighting aircraft concept based on the CL-415.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Robot Dog Locomotion in Complex Environments</h3>
+        <p>
+            Worked on improving the locomotion capabilities of the Unitree Go1
+            robot dog in unstructured environments.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Bicycle-Based Power Generator</h3>
+        <p>
+            Designed and built a stationary pedaling machine that generates
+            electrical power and stores it in a battery.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Rotating Solar Panel</h3>
+        <p>
+            Built a solar-tracking system using Arduino, LDR sensors, and a DC motor
+            to improve power generation through sun alignment.
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="active" style="display:block;">
+    <h2>Contact</h2>
     <p>Email: <a href="mailto:hijazimustafa971@gmail.com">hijazimustafa971@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/mustafa-hijazi-321158213" target="_blank">Mustafa Hijazi</a></p>
     <p>GitHub: <a href="https://github.com/MustafaHijazi471" target="_blank">github.com/MustafaHijazi471</a></p>
@@ -229,6 +252,24 @@
 <footer>
     <p>© 2026 Mustafa Hijazi. All rights reserved.</p>
 </footer>
+
+<script>
+    function showSection(sectionId, button) {
+        const sections = document.querySelectorAll("section");
+        const tabs = document.querySelectorAll(".tab");
+
+        sections.forEach(section => {
+            if (section.id !== "contact") {
+                section.classList.remove("active");
+            }
+        });
+
+        tabs.forEach(tab => tab.classList.remove("active"));
+
+        document.getElementById(sectionId).classList.add("active");
+        button.classList.add("active");
+    }
+</script>
 
 </body>
 </html>
