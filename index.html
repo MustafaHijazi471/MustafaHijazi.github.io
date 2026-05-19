@@ -36,6 +36,8 @@
             padding: 15px;
             position: sticky;
             top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
         }
 
         nav button {
@@ -62,6 +64,13 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .button:hover {
+            background-color: #0ea5e9;
         }
 
         section {
@@ -83,8 +92,8 @@
 
         .card {
             background-color: #1e293b;
-            padding: 22px;
-            margin-bottom: 20px;
+            padding: 24px;
+            margin-bottom: 24px;
             border-radius: 14px;
             border: 1px solid #334155;
         }
@@ -92,6 +101,30 @@
         .card h3 {
             margin-top: 0;
             color: #f8fafc;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .work-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 1px solid #334155;
+        }
+
+        .full-desc {
+            display: none;
+            margin-top: 18px;
+            padding-top: 10px;
+            border-top: 1px solid #334155;
         }
 
         .tag {
@@ -114,6 +147,17 @@
         a {
             color: #38bdf8;
         }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            nav button {
+                display: block;
+                margin: 10px auto;
+            }
+        }
     </style>
 </head>
 
@@ -122,21 +166,22 @@
 <header>
     <h1>Mustafa Hijazi</h1>
     <p>Mechanical Engineering Student | UAV Design | Robotics | CAD | Prototyping</p>
-    <a class="button" href="Mustafa%20Hijazi%20CV.pdf" target="_blank">Download CV</a>
+    <a class="button" href="./Mustafa%20Hijazi%20CV.pdf" target="_blank">Download CV</a>
 </header>
 
 <nav>
     <button class="tab active" onclick="showSection('home', this)">Home</button>
     <button class="tab" onclick="showSection('experience', this)">Experience</button>
     <button class="tab" onclick="showSection('projects', this)">Projects</button>
+    <button class="tab" onclick="showSection('contact', this)">Contact</button>
 </nav>
 
 <section id="home" class="active">
     <h2>About Me</h2>
     <p>
-        I am a Mechanical Engineer with a passion for UAV design, robotics,
-        CAD modelling, prototyping, and simulation. My work combines mechanical design, hands-on fabrication, electronics,
-        and multidisciplinary engineering problem-solving.
+        I am a Mechanical Engineering student with a passion for UAV design, robotics,
+        CAD modeling, prototyping, and simulation. My work combines mechanical design,
+        hands-on fabrication, electronics, and multidisciplinary engineering problem-solving.
     </p>
 
     <h2>Education</h2>
@@ -156,7 +201,7 @@
         <span class="tag">Ansys Fluent</span>
         <span class="tag">ROS2</span>
         <span class="tag">Gazebo</span>
-        <span class="tag">CAD Modelling</span>
+        <span class="tag">CAD Modeling</span>
         <span class="tag">FEA</span>
         <span class="tag">Robotics</span>
         <span class="tag">UAV Design</span>
@@ -169,28 +214,62 @@
     <h2>Work Experience</h2>
 
     <div class="card">
-        <img src="Jubaili-bros-logo.jpg" alt="Jubaili Bros Logo" style="width:100%; max-width:400px; border-radius:8px;">
+        <img src="./Jubaili-Bros-logo.jpg" alt="Jubaili Bros Logo" class="logo-img">
+
         <h3>Engineering Intern — Jubaili Bros</h3>
+
         <p>
             Gained hands-on exposure to generator components, wiring schemes,
             electrical layouts, control panels, power generators, chassis design,
             and fabrication processes.
         </p>
-        <div class="full-desc" style="display:none;">
-        <p>
-            I Helped assemble large generators including this large 500 kVa generator behind me.
-        </p>
-        <img src="500KVA-generator.jpg" alt="500 kVa Generator" style="width:100%; max-width:400px; border-radius:8px;">
+
+        <button class="button" onclick="toggleDetails(this)">Read More</button>
+
+        <div class="full-desc">
+            <p>
+                During my internship at Jubaili Bros, I was exposed to the assembly
+                and manufacturing processes behind industrial power generators. I observed
+                and assisted with generator components, chassis fabrication, electrical
+                wiring, control panel layouts, and the integration of mechanical and
+                electrical systems.
+            </p>
+
+            <p>
+                One of the key experiences was working around large generator units,
+                including a 500 kVA generator. This helped me better understand how
+                mechanical structure, electrical systems, safety, and production quality
+                come together in real industrial power solutions.
+            </p>
+
+            <img src="./500KVA-generator.jpg" alt="500 kVA Generator" class="work-img">
         </div>
     </div>
 
     <div class="card">
         <h3>Mechanical Engineering Intern — Alef Group</h3>
+
         <p>
             Reviewed HVAC, drainage, fire protection, natural gas, and water layouts
-            for residential projects. Worked on HVAC drawings using AutoCAD and
-            visited construction sites to observe MEP installation inspections.
+            for residential projects. Worked on HVAC drawings using AutoCAD and visited
+            construction sites to observe MEP installation inspections.
         </p>
+
+        <button class="button" onclick="toggleDetails(this)">Read More</button>
+
+        <div class="full-desc">
+            <p>
+                This internship strengthened my understanding of building services and
+                MEP coordination. I reviewed technical drawings, learned how different
+                mechanical systems are integrated in residential developments, and gained
+                exposure to site execution and inspection procedures.
+            </p>
+
+            <p>
+                The experience helped me connect classroom knowledge in HVAC, fluid systems,
+                and mechanical design with real construction practices.
+            </p>
+        </div>
     </div>
 </section>
 
@@ -201,7 +280,7 @@
         <h3>Tri-copter with 360° Omnidirectional Maneuvering</h3>
         <p>
             Designed a custom UAV with a carbon fiber frame and 3D printed PETG arm
-            mounts, focusing on strength, weight reduction, CAD modelling, wiring,
+            mounts, focusing on strength, weight reduction, CAD modeling, wiring,
             and prototype development.
         </p>
     </div>
@@ -247,7 +326,7 @@
     </div>
 </section>
 
-<section id="contact" class="active" style="display:block;">
+<section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:hijazimustafa971@gmail.com">hijazimustafa971@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/mustafa-hijazi-321158213" target="_blank">Mustafa Hijazi</a></p>
@@ -264,15 +343,27 @@
         const tabs = document.querySelectorAll(".tab");
 
         sections.forEach(section => {
-            if (section.id !== "contact") {
-                section.classList.remove("active");
-            }
+            section.classList.remove("active");
         });
 
-        tabs.forEach(tab => tab.classList.remove("active"));
+        tabs.forEach(tab => {
+            tab.classList.remove("active");
+        });
 
         document.getElementById(sectionId).classList.add("active");
         button.classList.add("active");
+    }
+
+    function toggleDetails(button) {
+        const details = button.nextElementSibling;
+
+        if (details.style.display === "block") {
+            details.style.display = "none";
+            button.textContent = "Read More";
+        } else {
+            details.style.display = "block";
+            button.textContent = "Show Less";
+        }
     }
 </script>
 
