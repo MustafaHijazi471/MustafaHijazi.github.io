@@ -120,6 +120,18 @@
             border: 1px solid #334155;
         }
 
+        .image-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .image-row .work-img {
+            flex: 1 1 calc(50% - 8px);
+            max-width: calc(50% - 8px);
+        }
+
         .full-desc {
             display: none;
             margin-top: 18px;
@@ -272,11 +284,14 @@
                 visit many construction sites and see key systems in detail including fire protection,
                 AC systems, and water management.
             </p>
-            <img src="./construction-site.JPG" alt="Construction Site" class="work-img">
-            <img src="./fire-protection-room.jpeg" alt="Fire Protection Room" class="work-img">
-            <img src="./roof-FCUs.jpg" alt="Fan Coil Units" class="work-img">
-            <img src="./Pool-water-room.jpg" alt="Pool Water Management Room" class="work-img">
-           
+            <div class="image-row">
+                <img src="./construction-site.JPG" alt="Construction Site" class="work-img">
+                <img src="./fire-protection-room.jpeg" alt="Fire Protection Room" class="work-img">
+            </div>
+            <div class="image-row">
+                <img src="./roof-FCUs.jpg" alt="Fan Coil Units" class="work-img">
+                <img src="./Pool-water-room.jpg" alt="Pool Water Management Room" class="work-img">
+            </div>
             <p>
                 I was also allowed to attend meetings with partner consultants to gain insight
                 into the decision making process behind the scenes. The engineering teamat Alef
