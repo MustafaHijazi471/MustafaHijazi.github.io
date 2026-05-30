@@ -121,15 +121,18 @@
         }
 
         .image-row {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin-top: 15px;
         }
 
         .image-row .work-img {
-            flex: 1 1 calc(50% - 8px);
-            max-width: calc(50% - 8px);
+            width: 100%;
+            max-width: none;
+            height: 260px;
+            object-fit: cover;
+            margin-top: 0;
         }
 
         .full-desc {
@@ -158,6 +161,16 @@
 
         a {
             color: #38bdf8;
+        }
+
+        @media (max-width: 700px) {
+            .image-row {
+                grid-template-columns: 1fr;
+            }
+
+            .image-row .work-img {
+                height: auto;
+            }
         }
 
         @media (max-width: 600px) {
@@ -243,9 +256,8 @@
 
         <div class="full-desc">
             <p>
-                During my internship at Jubaili Bros, I was exposed to the assembly processes behind industrial power generators. I observed
-                and assisted with generator components, chassis fabrication, electrical
-                wiring, and control panel layouts.
+                During my internship at Jubaili Bros, I was exposed to the assembly processes behind industrial power generators.
+                I observed and assisted with generator components, chassis fabrication, electrical wiring, and control panel layouts.
             </p>
 
             <p>
@@ -257,7 +269,6 @@
     </div>
 
     <div class="card">
-        
         <img src="./Alef-Group-Logo.png" alt="Alef Group Logo" class="logo-img">
 
         <h3>Mechanical Engineering Intern — Alef Group</h3>
@@ -284,21 +295,23 @@
                 visit many construction sites and see key systems in detail including fire protection,
                 AC systems, and water management.
             </p>
+
             <div class="image-row">
                 <img src="./construction-site.JPG" alt="Construction Site" class="work-img">
                 <img src="./fire-protection-room.jpeg" alt="Fire Protection Room" class="work-img">
             </div>
+
             <div class="image-row">
                 <img src="./roof-FCUs.jpg" alt="Fan Coil Units" class="work-img">
                 <img src="./Pool-water-room.jpg" alt="Pool Water Management Room" class="work-img">
             </div>
+
             <p>
                 I was also allowed to attend meetings with partner consultants to gain insight
-                into the decision making process behind the scenes. The engineering teamat Alef
-                made this experience very enriching and I am grateful for the opportunity to learn
+                into the decision-making process behind the scenes. The engineering team at Alef
+                made this experience very enriching, and I am grateful for the opportunity to learn
                 from them.
             </p>
-
         </div>
     </div>
 </section>
