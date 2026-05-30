@@ -67,6 +67,7 @@
             border: none;
             cursor: pointer;
             font-size: 15px;
+            line-height: 1.2;
         }
 
         .button:hover {
@@ -205,10 +206,10 @@
 </header>
 
 <nav>
-    <button class="tab active" onclick="showSection('home', this)">Home</button>
-    <button class="tab" onclick="showSection('experience', this)">Experience</button>
-    <button class="tab" onclick="showSection('projects', this)">Projects</button>
-    <button class="tab" onclick="showSection('contact', this)">Contact</button>
+    <button type="button" class="tab active" onclick="showSection('home', this)">Home</button>
+    <button type="button" class="tab" onclick="showSection('experience', this)">Experience</button>
+    <button type="button" class="tab" onclick="showSection('projects', this)">Projects</button>
+    <button type="button" class="tab" onclick="showSection('contact', this)">Contact</button>
 </nav>
 
 <section id="home" class="active">
@@ -262,7 +263,7 @@
             and fabrication processes.
         </p>
 
-        <button class="button" onclick="toggleDetails(this)">Read More</button>
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
 
         <div class="full-desc">
             <p>
@@ -289,7 +290,7 @@
             construction sites to observe MEP installation inspections.
         </p>
 
-        <button class="button" onclick="toggleDetails(this)">Read More</button>
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
 
         <div class="full-desc">
             <p>
@@ -338,7 +339,7 @@
             and prototype development.
         </p>
 
-        <button class="button" onclick="toggleDetails(this)">Read More</button>
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
 
         <div class="full-desc">
             <p>
@@ -443,7 +444,7 @@
             ROS2, Python, Gazebo, and minimum-jerk trajectory optimization.
         </p>
 
-        <button class="button" onclick="toggleDetails(this)">Read More</button>
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
 
         <div class="full-desc">
             <p>
@@ -506,6 +507,48 @@
             Developed control logic for the scooping phase of an autonomous
             firefighting aircraft concept based on the CL-415.
         </p>
+
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
+
+        <div class="full-desc">
+            <p>
+                Wildfires are becoming increasingly common and devastating, so we need an efficient solution
+                to combat them. One promising approach is the use of autonomous firefighting UAVs that can 
+                quickly respond to fires, access hard-to-reach areas, and operate in dangerous conditions without 
+                risking human lives. Under the supervision of Dr. Bilal Kaddouh, an autonomous firefighting UAV
+                based on the Canadair CL-415 was proposed. The CL-415 is an amphibious aircraft that can scoop 
+                water from lakes or reservoirs and drop it on fires.
+            </p>
+            
+            <img src="./cl-415.jpg" alt="Canadair CL-415 Firefighting Aircraft" class="work-img">
+
+            <p>
+                My role in this project was focused on the control logic for the
+                scooping phase of the firefighting UAV's mission. This involved the sequence from the beginning of the fire
+                detection phase until the UAV dispenses water on the fire.
+            </p>
+
+            <p>
+                I defined the problem, then researched operational limits, failure conditions, and mission 
+                states to better understand the constraints and requirements. I also looked at the control loops 
+                for fixed-wing UAVs used by ArduPilot and PX4 to get a better understanding of
+                existing architectures. Moreover, I drafted block and state diagrams to visualize the control 
+                logic and the flow of information between different systems.
+            </p>
+
+            <div class="image-row">
+                <img src="./block-diagram-vipp-bilal.jpg" alt="Block Diagram of the Autonomous Firefighting UAV Control Logic" class="work-img">
+                <img src="./state-diagram-vipp-bilal.jpg" alt="State Diagram of the Autonomous Firefighting UAV Control Logic" class="work-img">
+            </div>
+
+            <p>
+                Finally, I suggested methods that could be used to modify the control loops to
+                achieve safe scooping behavior while accounting for operational constraints. This included
+                mission states, failure conditions, porpoising, and water-surface conditions.
+            </p>
+
+        </div>
+
     </div>
 
     <div class="card">
@@ -553,8 +596,11 @@
 
 <script>
     function showSection(sectionId, button) {
+        const selectedSection = document.getElementById(sectionId);
         const sections = document.querySelectorAll("section");
         const tabs = document.querySelectorAll(".tab");
+
+        if (!selectedSection) return;
 
         sections.forEach(section => {
             section.classList.remove("active");
@@ -564,20 +610,20 @@
             tab.classList.remove("active");
         });
 
-        document.getElementById(sectionId).classList.add("active");
+        selectedSection.classList.add("active");
         button.classList.add("active");
     }
 
     function toggleDetails(button) {
-        const details = button.nextElementSibling;
+        const card = button.closest(".card");
+        const details = card ? card.querySelector(".full-desc") : null;
 
-        if (details.style.display === "block") {
-            details.style.display = "none";
-            button.textContent = "Read More";
-        } else {
-            details.style.display = "block";
-            button.textContent = "Show Less";
-        }
+        if (!details) return;
+
+        const isOpen = details.style.display === "block";
+        details.style.display = isOpen ? "none" : "block";
+        button.textContent = isOpen ? "Read More" : "Show Less";
+        button.setAttribute("aria-expanded", String(!isOpen));
     }
 </script>
 
