@@ -345,8 +345,8 @@
             <p>
                 My final year project involved designing and building a tri-copter
                 UAV with omnidirectional maneuvering capabilities. My work focused on creating
-                a lightweight yet strong frame to support the unique 3-rotor configuration and supporting
-                the hardware layout and wiring schematics.
+                a lightweight yet strong frame to support the unique 3-rotor configuration while also
+                supporting the hardware layout and wiring schematics.
             </p>
 
             <p>
@@ -512,27 +512,27 @@
 
         <div class="full-desc">
             <p>
-                Wildfires are becoming increasingly common and devastating, so we need an efficient solution
-                to combat them. One promising approach is the use of autonomous firefighting UAVs that can 
-                quickly respond to fires, access hard-to-reach areas, and operate in dangerous conditions without 
+                Wildfires are becoming increasingly common and devastating, so we need efficient solutions
+                to combat them. One promising approach is the use of autonomous firefighting UAVs that can
+                quickly respond to fires, access hard-to-reach areas, and operate in dangerous conditions without
                 risking human lives. Under the supervision of Dr. Bilal Kaddouh, an autonomous firefighting UAV
-                based on the Canadair CL-415 was proposed. The CL-415 is an amphibious aircraft that can scoop 
+                based on the Canadair CL-415 was proposed. The CL-415 is an amphibious aircraft that can scoop
                 water from lakes or reservoirs and drop it on fires.
             </p>
-            
+
             <img src="./cl-415.jpg" alt="Canadair CL-415 Firefighting Aircraft" class="work-img">
 
             <p>
-                My role in this project was focused on the control logic for the
-                scooping phase of the firefighting UAV's mission. This involved the sequence from the beginning of the fire
+                My role in this project focused on the control logic for the scooping phase of the
+                firefighting UAV's mission. This involved the sequence from the beginning of the fire
                 detection phase until the UAV dispenses water on the fire.
             </p>
 
             <p>
-                I defined the problem, then researched operational limits, failure conditions, and mission 
-                states to better understand the constraints and requirements. I also looked at the control loops 
+                I defined the problem, then researched operational limits, failure conditions, and mission
+                states to better understand the constraints and requirements. I also looked at the control loops
                 for fixed-wing UAVs used by ArduPilot and PX4 to get a better understanding of
-                existing architectures. Moreover, I drafted block and state diagrams to visualize the control 
+                existing architectures. Moreover, I drafted block and state diagrams to visualize the control
                 logic and the flow of information between different systems.
             </p>
 
@@ -546,9 +546,7 @@
                 achieve safe scooping behavior while accounting for operational constraints. This included
                 mission states, failure conditions, porpoising, and water-surface conditions.
             </p>
-
         </div>
-
     </div>
 
     <div class="card">
@@ -558,6 +556,26 @@
             Worked on improving the locomotion capabilities of the Unitree Go1
             robot dog in unstructured environments.
         </p>
+
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
+
+        <div class="full-desc">
+            <p>
+                This project, advised by Dr. Hussein Hussein, focused on enhancing the locomotion capabilities
+                of the Unitree Go1 robot dog. I started by becoming familiar with the high-level control of the
+                robot using its handheld controller and by running it through high-level commands in ROS2.
+            </p>
+
+            <p>
+                I then moved on to low-level control. The team and I worked on identifying suitable gain values
+                to achieve stable standing behavior.
+            </p>
+
+            <video class="project-video" controls preload="metadata">
+                <source src="./robot-dog-standing.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 
     <div class="card">
@@ -567,6 +585,28 @@
             Designed and built a stationary pedaling machine that generates
             electrical power and stores it in a battery.
         </p>
+
+        <button type="button" class="button" aria-expanded="false" onclick="toggleDetails(this)">Read More</button>
+
+        <div class="full-desc">
+            <p>
+                The project required designing a rotating device that generates electrical power. We therefore
+                developed a stationary pedaling machine that converts rotational energy from pedaling into
+                electrical energy. It is meant to be used in areas with limited space, such as an office
+                or home. It allows users to exercise without exerting too much effort while benefiting
+                from the generated power.
+            </p>
+
+            <p>
+                We took components from a regular bicycle, such as the pedals, chain, and gears. We then designed
+                a custom frame to hold the pedals and gears in place. These were connected to a 12V dynamo.
+            </p>
+
+            <video class="project-video" controls preload="metadata">
+                <source src="./420-prototype.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 </section>
 
