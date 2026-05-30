@@ -153,6 +153,15 @@
             font-size: 14px;
         }
 
+        .project-video {
+            display: block;
+            width: 100%;
+            max-width: 700px;
+            margin: 18px auto 0;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -362,8 +371,8 @@
                 <a href="https://store.tmotor.com/product/polish-carbon-fiber-17x5_8-prop.html" target="_blank" rel="noopener noreferrer">
                     17x5.8 Carbon Fiber Propellers
                 </a>.
-                The total maximum thrust output is 10.752 kg. This is obtained by multiplying the
-                maximum thrust of each motor/propeller combo, 3.36 kg, by the thrust output factor
+                The total maximum thrust output is 10.752 kgf. This is obtained by multiplying the
+                maximum thrust of each motor/propeller combo, 3.36 kgf, by the thrust output factor
                 of coaxial motors, 1.6x instead of 2x, and then multiplying by the number of coaxial
                 setups, which is 2.
             </p>
@@ -383,8 +392,8 @@
             <img src="./40-A-ESC-T-motor.jpg" alt="40A ESC by T-Motor" class="work-img">
 
             <p>
-                This required the frame to weigh less than 5.376 kg to meet the 2:1
-                thrust-to-weight ratio requirement.
+                This meant the complete UAV takeoff mass had to remain below 5.376 kg
+                to satisfy the 2:1 thrust-to-weight ratio requirement.
             </p>
 
             <p>
@@ -433,6 +442,61 @@
             Simulated smooth humanlike trajectories for a 6-DOF robotic arm using
             ROS2, Python, Gazebo, and minimum-jerk trajectory optimization.
         </p>
+
+        <button class="button" onclick="toggleDetails(this)">Read More</button>
+
+        <div class="full-desc">
+            <p>
+                Advised by Dr. Daniel Amar, I worked on the literature review for a PhD thesis
+                on human-robot interaction. People are generally more comfortable working with
+                robots that move in a smooth and humanlike way, so the goal of the research was
+                to develop a method for generating smooth, humanlike trajectories for a 6-DOF
+                robotic arm's end effector.
+            </p>
+
+            <p>
+                The robot used in this project was the Dobot CR10A.
+            </p>
+
+            <img src="./dobot-cr10a.png" alt="Dobot CR10A Robotic Arm" class="work-img">
+
+            <p>
+                I reviewed literature on trajectory generation and optimization, especially the
+                two-thirds power law, which describes the relationship between speed and curvature
+                in human arm movements. I also reviewed minimum-jerk trajectory optimization, a common
+                approach for generating smooth trajectories that minimize sudden changes in acceleration,
+                known as jerk. One of the key papers behind this work was Flash and Hogan's
+                <a href="https://www.jneurosci.org/content/5/7/1688" target="_blank" rel="noopener noreferrer">
+                    "The Coordination of Arm Movements: An Experimentally Confirmed Mathematical Model"
+                </a>
+                published in 1985.
+            </p>
+
+            <p>
+                I then used Python, with AI assistance, to implement the formulas from the
+                two-thirds power law and generate trajectories that satisfy the minimum-jerk
+                optimization criteria while maintaining continuity between waypoints. I integrated
+                these trajectories into a ROS2 and Gazebo simulation.
+            </p>
+
+            <p>
+                The result was a smooth movement of the robotic arm with reduced jerk along the
+                path. Smooth motion can reduce energy expenditure and mechanical stress. It is similar
+                to driving a manual car, where smooth gear changes avoid jerky movements, reduce strain,
+                and improve efficiency. The same principle applies to robotic arms: smoother trajectories
+                can lead to more efficient and natural movements.
+            </p>
+
+            <p>
+                The final successful simulation of the robotic arm following the optimized trajectory is
+                shown in the video below.
+            </p>
+
+            <video class="project-video" controls preload="metadata">
+                <source src="./final-successful-movement-2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 
     <div class="card">
